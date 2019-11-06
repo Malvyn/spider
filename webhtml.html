@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>漏斗图</title>
+	<script type="text/javascript" src="./echarts.js"></script>
+</head>
+<body>
+	<div id="main" style="width: 800px;height: 600px">1111</div>
+	<article id="main2" style="width: 800px;height: 600px">
+		<span>
+			logo
+			<a href="http://www.baidu.com" style="font-size:15px;">taobao</a>
+			<b>hahaha<em>3333</em></b>
+			<a href="www.baidu.com">taobao2</a>
+		</span>
+	</article>
+	<div id="last">last... ...</div>
+	<div class="one">11111111111111111111111</div>
+	<div class="one two" name="sec" data-foo="value">22222222222222222222222</div>
+	<div id="left">
+		<a href="http://www.taobao1.com">11111</a>
+		<a href="http://www.taobao2.com">333333</a>
+		<a href="http://www.taobao3.com">4444</a>
+		<a href="http://www.taobao4.com">55555</a>
+	</div>
+	<script type="text/javascript">
+		var myChart=echarts.init(document.getElementById('main'))
+		var option={
+			title:{
+				text:"你的附近哪家自助货架比较多",
+				subtext:"数据地区:上海",
+			},
+			tooltip:{
+				// trigger:'item'   //not axis
+			},
+			legend:{
+				orient:"vertical",
+				left:"left",
+				top:"center",
+				data:['猩便利','小u货架','友宝','峰小柜','小e微店']
+				//data中的名字和series 中data中的name相等
+			},
+			toolbox:{
+				// show:true,
+				feature:{              //feature  不是 true
+					// mark:{
+					// 	show:true
+					// },
+					dataView:{
+						show:true,
+						readOnly:true
+					},
+					restore:{
+						show:true
+					},
+					saveAsImage:{
+						show:true
+					}
+				}
+			},
+			series:[{
+				name:"货架详情",
+				type:"funnel",
+				left:"30%",
+				max:100,
+				min:0,
+				data:[
+					{
+						value:100,
+						name:"猩便利",
+					},{
+						value:80,
+						name:"友宝"
+					},{
+						value:60,
+						name:"峰小柜"
+					},{
+						name:"小u货架",
+						value:20
+					},{
+						name:"小e微店",
+						value:40
+					}
+				]
+			}]
+		}
+		myChart.setOption(option)
+
+	</script>
+</body>
+</html>
